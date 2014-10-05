@@ -1,0 +1,18 @@
+{
+	"hl" : {
+		"name" : "Holidays",
+		"sub" : {
+			"summer" : {
+				"name" : "Summer",
+				"path" : "photos/holidays/Summer",
+				"captions" : {
+					"05-xThibault.jpg" : "Le plus beau !"
+				}
+			},
+			"winter" : {
+				"name" : "Winter",
+				"path" : "photos/holidays/Winter"
+			}
+		}
+	}
+}

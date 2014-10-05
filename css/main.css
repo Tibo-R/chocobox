@@ -1,0 +1,102 @@
+#viewer
+{
+	width : 80%;
+	float : left;
+	text-align : center;
+}
+
+#photos{
+	width : 100%;
+}
+
+#thumbs{
+	margin: auto;
+}
+
+.jThumbnailScroller{
+	height: 40px !important;
+	margin: auto !important;
+	max-width : 70% !important;
+}
+
+
+
+#thumbs img
+{
+	cursor: pointer;
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-o-transition : opacity 1s;
+	transition: opacity 1s;
+	margin-right: 5px;
+	opacity: 0.4;
+	-moz-opacity: 0.4;
+
+}
+
+#thumbs img:hover
+{
+	-webkit-transition: opacity 0.5s;
+	-moz-transition: opacity 0.5s;
+	-o-transition : opacity 0.5s;
+	transition: opacity 0.5s;
+	margin-right: 5px;
+	opacity: 1;
+	-moz-opacity: 1;
+}
+
+#thumbs img.selected
+{
+	opacity: 1;
+	-moz-opacity: 1;
+}
+
+
+#sidebar
+{
+	float: left;
+	width : 20%;
+}
+
+#sidebar h1
+{
+	margin : 10px;
+}
+
+.clear{
+	clear: both;
+}
+
+h2#serieTitle
+{
+	width : 100%;
+	padding: auto;
+	text-align: center;
+	margin: 20px 0 0 0;
+}
+
+.expand{
+	cursor: pointer;
+}
+
+.link{
+	margin-top: 20px;
+	cursor:	pointer;
+}
+
+#copaings{
+	cursor: pointer;
+}
+
+ul#listCopaings {
+	text-align: left;
+	margin-top : 50px;
+}
+
+ul#listCopaings li a{
+	font-style: italic;
+}
+
+ul#listCopaings .copainName{
+	font-weight: bold;
+}
