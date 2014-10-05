@@ -89,7 +89,6 @@
 <body>
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
-
   <div role="main">
     <div id="sidebar">
       <?php if (isset($conf['title'])) : ?>
@@ -97,15 +96,19 @@
       <?php endif; ?>
       <ul id="menu">
         <?php foreach ($cats as $key => $cat) : ?>
-          <li class="expand" ><?php echo $cat['name'] ?>
-            <ul style="display: none" id="l_<?php echo $cat['id'] ?>">
-          <?php foreach ($cat['sub'] as $subkey => $subcat) : ?>
-            <li><a href="<?php echo $subcat['path'] ?>" id="<?php echo $subcat['id'] ?>" class="gallerie"><?php echo $subcat['name'] ?></a></li>
-          <?php endforeach; ?>
-          </ul>
-          </li>
-
+          <?php if (isset($cat['sub'])) : ?>
+            <li class="expand" ><?php echo $cat['name'] ?>
+              <ul style="display: none" id="l_<?php echo $cat['id'] ?>">
+              <?php foreach ($cat['sub'] as $subkey => $subcat) : ?>
+                <li><a href="<?php echo $subcat['path'] ?>" id="<?php echo $subcat['id'] ?>" class="gallerie"><?php echo $subcat['name'] ?></a></li>
+              <?php endforeach; ?>
+              </ul>
+            </li>
+          <?php else : ?>
+            <li><a href="<?php echo $cat['path'] ?>" id="<?php echo $cat['id'] ?>" class="gallerie"><?php echo $cat['name'] ?></a></li>
+          <?php endif; ?>
         <?php endforeach; ?>
+        
         <?php $index = 0; ?>
         <?php if (isset($conf['links'])) : ?>
           <?php foreach ($conf['links'] as $name => $link) : ?>
@@ -114,8 +117,9 @@
           <?php endforeach; ?>
         <?php endif; ?>
 
-
-    <li class="link" id="friends"><?php echo (isset($conf['friends_link_name']) ? $conf['friends_link_name'] : "Friends") ?></li>
+      <?php if (isset($conf['friends_link_name'])) : ?>
+        <li class="link" id="friends"><?php echo $conf['friends_link_name'] ?></li>
+      <?php endif; ?>
 
       </ul>
     </div>
@@ -131,10 +135,8 @@
       </div>
     </div>
   </div>
-  <footer>
 
-  </footer>
-
+  <footer></footer>
 
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
   <script src="js/jquery-ui-1.8.13.custom.min.js"></script>

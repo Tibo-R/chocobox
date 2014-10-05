@@ -62,8 +62,6 @@ function imagethumb($image_src, $image_dest = NULL, $max_size = 100, $expand = F
 	// Ouvre l'image originale
 	$func = 'imagecreatefrom' . $type;
 	if(!function_exists($func)) {
-
-		echo "mince : ".$func;
 		return FALSE;
 	}
 

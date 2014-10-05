@@ -6,7 +6,7 @@
 				"name" : "Summer",
 				"path" : "photos/holidays/Summer",
 				"captions" : {
-					"05-xThibault.jpg" : "Le plus beau !"
+					"DSCF4894.JPG" : "Le Pic du Midi dOssau"
 				}
 			},
 			"winter" : {
@@ -14,5 +14,9 @@
 				"path" : "photos/holidays/Winter"
 			}
 		}
+	},
+	"others" : {
+		"name" : "Others",
+		"path" : "photos/Others"
 	}
 }
