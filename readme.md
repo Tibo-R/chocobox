@@ -1,30 +1,21 @@
 # ChocoBox
 
-ChocoBox is a simple portfolio for photographers. It use [Chocolate](http://chocolat.insipi.de) js on the frontend to display the photos and a homemade backend in php using json as storage.
+ChocoBox is a simple portfolio for photographers. It use [Chocolate](http://chocolat.insipi.de) js on the frontend to display the photos and a homemade backend in php using json files as storage.
 
-It's purpose is to be simple, easily customizable.
-
-What it is not suppose to be is :
-* A secure website to store photos
-* A blog
-* A website with interactions such as comments
-* A coffee machine
+It's purpose is to be simple and easily customizable.
 
 ## Quick start
 
 /!\ THIS SOFTWARE COMES WITH NO WARRANTIES, USE AT YOUR OWN RISK
 
-Just download the project and put it on your webserver using ftp.
+Just download the project and put it on your webserver via ftp. Edit admin/conf.json, admin/categories.json and admin/friends.json. (The projects come with conf examples.)
 
-Edit admin/conf.json and admin/friends.json.
-
-Then upload your photos in the "photos" folder
-
+YOu'll have to upload your photos in the "photos" folder.
 
 ## Features
 
 * Create categories and sub-categories
-* Display photo in a nice way (using chocolate)
+* Display photo with a nice viewer (using chocolate)
 * Automatically generate thumbnails
 * Add captions to photos
 * Add list of friends websites
@@ -32,7 +23,7 @@ Then upload your photos in the "photos" folder
 
 ## TO-DO
 
-* Easy interface to edit json conf file
+* Easy interface to edit json conf and categorie file
 * Easy upload of photos
 * Use [Chocolat 0.4](https://github.com/nicolas-t/Chocolat)
 
@@ -40,20 +31,25 @@ Then upload your photos in the "photos" folder
 
 ## License
 
-### Major components:
+### Components:
 
+* [Chocolate.js](http://chocolat.insipi.de) : CC BY-SA 2.0 FR
 * jQuery: MIT/GPL license
 * Modernizr: MIT/BSD license
 * Normalize.css: Public Domain
-* [Chocolate.js](http://chocolat.insipi.de) : CC BY-SA 2.0 FR
+
 
 ### Everything else:
 
 Under GNU GPL v2
 
 ## Demo
-YOu can see a demo here : http://projets.thibault-roucou.fr/chocobox/
+You can see a demo here (copy of the current repo) : http://projets.thibault-roucou.fr/chocobox/
 
 ## Need help ?
 
 You can contact me by email : contact (at) thibault-roucou.fr
+
+## Want to contribute ?
+
+Please fork and send pull requests !!
