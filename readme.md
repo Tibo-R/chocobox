@@ -51,6 +51,9 @@ Then upload your photos in the "photos" folder
 
 Under GNU GPL v2
 
+## Demo
+YOu can see a demo here : http://projets.thibault-roucou.fr/chocobox/
+
 ## Need help ?
 
 You can contact me by email : contact (at) thibault-roucou.fr
