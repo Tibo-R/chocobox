@@ -108,7 +108,7 @@
             <li><a href="<?php echo $cat['path'] ?>" id="<?php echo $cat['id'] ?>" class="gallerie"><?php echo $cat['name'] ?></a></li>
           <?php endif; ?>
         <?php endforeach; ?>
-        
+
         <?php $index = 0; ?>
         <?php if (isset($conf['links'])) : ?>
           <?php foreach ($conf['links'] as $name => $link) : ?>
@@ -146,8 +146,8 @@
 
   <script>
     $(document).ready(function() {
-      var obj = jQuery.parseJSON('<?php echo json_encode($galleries) ?>');
-      var friends = jQuery.parseJSON('<?php echo json_encode($friends) ?>');
+      var obj = jQuery.parseJSON('<?= json_encode($galleries, JSON_HEX_APOS) ?>');
+      var friends = jQuery.parseJSON('<?= json_encode($friends, JSON_HEX_APOS) ?>');
       main(obj, friends);
 
 
