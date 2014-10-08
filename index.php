@@ -92,33 +92,33 @@
   <div role="main">
     <div id="sidebar">
       <?php if (isset($conf['title'])) : ?>
-      <h1><a href="."><?php echo $conf['title'] ?></a></h1>
+      <h1><a href="."><?= $conf['title'] ?></a></h1>
       <?php endif; ?>
       <ul id="menu">
         <?php foreach ($cats as $key => $cat) : ?>
           <?php if (isset($cat['sub'])) : ?>
-            <li class="expand" ><?php echo $cat['name'] ?>
-              <ul style="display: none" id="l_<?php echo $cat['id'] ?>">
+            <li class="expand" ><?= $cat['name'] ?>
+              <ul style="display: none" id="l_<?= $cat['id'] ?>">
               <?php foreach ($cat['sub'] as $subkey => $subcat) : ?>
-                <li><a href="<?php echo $subcat['path'] ?>" id="<?php echo $subcat['id'] ?>" class="gallerie"><?php echo $subcat['name'] ?></a></li>
+                <li><a href="<?= $subcat['path'] ?>" id="<?= $subcat['id'] ?>" class="gallerie"><?= $subcat['name'] ?></a></li>
               <?php endforeach; ?>
               </ul>
             </li>
           <?php else : ?>
-            <li><a href="<?php echo $cat['path'] ?>" id="<?php echo $cat['id'] ?>" class="gallerie"><?php echo $cat['name'] ?></a></li>
+            <li><a href="<?= $cat['path'] ?>" id="<?= $cat['id'] ?>" class="gallerie"><?= $cat['name'] ?></a></li>
           <?php endif; ?>
         <?php endforeach; ?>
 
         <?php $index = 0; ?>
         <?php if (isset($conf['links'])) : ?>
           <?php foreach ($conf['links'] as $name => $link) : ?>
-            <li <?php if ($index==0) echo "class='link' "?>><a href="<?php echo $link ?>" target="_blank"><?php echo $name ?></a></li>
+            <li <?php if ($index==0) echo "class='link' "?>><a href="<?= $link ?>" target="_blank"><?= $name ?></a></li>
             <?php $index++; ?>
           <?php endforeach; ?>
         <?php endif; ?>
 
       <?php if (isset($conf['friends_link_name'])) : ?>
-        <li class="link" id="friends"><?php echo $conf['friends_link_name'] ?></li>
+        <li class="link" id="friends"><?= $conf['friends_link_name'] ?></li>
       <?php endif; ?>
 
       </ul>
