@@ -1,14 +1,16 @@
-var choco;
+var choco = null;
 
 function main(obj, friends){
 
     $("#photos").height($(window).height() - 120);
 
-
-
     var currentnb = 0;
     $(".gallerie").click(function(){
-      $("#photos").empty();
+      if (choco !== null) {
+        $("#photos").empty();
+        choco.close();
+      }
+
       $("#thumbs").empty();
       $("#serieTitle").html($(this).html());
       var id = $(this).attr('id');
@@ -18,6 +20,7 @@ function main(obj, friends){
       currentnb = 0;
       var cpt = 0;
       var links = [];
+      var allImages = [];
       for(var key in photos){
         cpt++;
         var photo = $(this).attr('href') + "/" + photos[key];
@@ -25,7 +28,8 @@ function main(obj, friends){
         if(obj["captions"] !== undefined && obj["captions"][photos[key]] !== undefined) {
           caption = obj["captions"][photos[key]];
         }
-        $("#photos").append('<a href ="' + photo + '" title="' + caption + '" />');
+        allImages.push({ src : photo, title: caption});
+
 		    thumb = [];
         thumb[cpt] = new Image();
         $(thumb[cpt]).attr("src", $(this).attr('href') + "/thumb/" + photos[key]);
@@ -48,7 +52,7 @@ function main(obj, friends){
           if(loadedPhotos == photos.length) {
             displayThumbs(scrollId);
             $("#thumbs img").on("click", function(){
-              choco.load($(this).attr("nb"));
+              choco.goto($(this).attr("nb"));
               $("#thumbs img.selected").removeClass("selected");
               $(this).addClass("selected");
             });
@@ -56,20 +60,15 @@ function main(obj, friends){
         });
       }
 
+      choco = $('#photos').Chocolat({
+        container : '#photos',
+        closeImg : "",
+        separator1: "",
+        images : allImages,
+        preventClose : true
+      }).data('api-chocolat');
 
-      choco = $('#photos a').Chocolat({container : $('#photos'),
-                               fadeInImageduration : 300,
-                               fadeOutImageduration : 300,
-                               closeImg : "",
-                               vache: false,
-                               separator1: ""
-                             });
-
-      //$("#scroller").html('<div class="jTscrollerContainer"><div id="thumbs" class="jTscroller"></div></div>');
-
-
-      $('#photos').find("a").hide();
-      $('#photos a').first().click();
+      choco.open();
       return false;
     });
 
@@ -96,7 +95,7 @@ function main(obj, friends){
                   { queue: false, duration: 'slow' }
                 );
 
-      if(ul.is(':visible')){
+      if (ul.is(':visible')) {
         ul.css('opacity', 1)
                .slideUp()
                .animate(
@@ -104,7 +103,7 @@ function main(obj, friends){
                   { queue: false, duration: 'slow' }
                 );
 
-      }else{
+      } else {
         ul.css('opacity', 0)
           .slideDown()
           .animate(
@@ -119,7 +118,7 @@ function main(obj, friends){
          var oldSelectedThumb = $("#thumbs img.selected");
          oldSelectedThumb.removeClass("selected");
          $("#thumbs").find('*[nb]').each(function(index){
-             if($(this).attr('nb') == data.page){
+             if ($(this).attr('nb') == data.page) {
                $(this).addClass("selected");
              }
          });
@@ -128,7 +127,7 @@ function main(obj, friends){
 
 }
 
-function displayThumbs(scrollId){
+function displayThumbs(scrollId) {
   $("#thumbs img:first").addClass("selected");
   $(".jTscroller").removeAttr("style");
   $(".jTscrollerContainer").removeAttr("style");

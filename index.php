@@ -80,7 +80,7 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/main.css">
-  <script src="js/libs/modernizr-2.5.2.min.js"></script>
+  <script src="js/lib/modernizr-2.5.2.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen" charset="utf-8">
   <link href="css/jquery.thumbnailScroller.css" rel="stylesheet" />
@@ -138,10 +138,10 @@
 
   <footer></footer>
 
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-  <script src="js/jquery-ui-1.8.13.custom.min.js"></script>
-  <script src="js/jquery.thumbnailScroller.js"></script>
-  <script src="js/jquery.chocolat.js"></script>
+  <script>window.jQuery || document.write('<script src="js/lib/jquery-1.11.1.min.js"><\/script>')</script>
+  <script src="js/lib/jquery-ui-1.8.13.custom.min.js"></script>
+  <script src="js/lib/jquery.thumbnailScroller.js"></script>
+  <script src="js/lib/jquery.chocolat.js"></script>
   <script src="js/script.js"></script>
 
   <script>
