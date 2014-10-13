@@ -1,6 +1,6 @@
 # ChocoBox
 
-ChocoBox is a simple portfolio for photographers. It use [Chocolate](http://chocolat.insipi.de) js on the frontend to display the photos and a homemade backend in php using json files as storage.
+ChocoBox is a simple portfolio for photographers. It use [Chocolate](https://github.com/nicolas-t/Chocolat) js on the frontend to display the photos and a homemade backend in php using json files as storage.
 
 It's purpose is to be simple and easily customizable.
 
@@ -10,7 +10,7 @@ It's purpose is to be simple and easily customizable.
 
 Just download the project and put it on your webserver via ftp. Edit admin/conf.json, admin/categories.json and admin/friends.json. (The projects come with conf examples.)
 
-YOu'll have to upload your photos in the "photos" folder.
+You'll have to upload your photos in the "photos" folder.
 
 ## Features
 
@@ -20,20 +20,16 @@ YOu'll have to upload your photos in the "photos" folder.
 * Add captions to photos
 * Add list of friends websites
 
-
 ## TO-DO
 
 * Easy interface to edit json conf and categorie file
 * Easy upload of photos
-* Use [Chocolat 0.4](https://github.com/nicolas-t/Chocolat)
-
-
 
 ## License
 
 ### Components:
 
-* [Chocolate.js](http://chocolat.insipi.de) : CC BY-SA 2.0 FR
+* [Chocolate 0.4](https://github.com/nicolas-t/Chocolat) : CC BY-SA 2.0 FR
 * jQuery: MIT/GPL license
 * Modernizr: MIT/BSD license
 * Normalize.css: Public Domain
@@ -52,4 +48,4 @@ You can contact me by email : contact (at) thibault-roucou.fr
 
 ## Want to contribute ?
 
-Please fork and send pull requests !!
+Please don't hesitate to fork and/or send pull requests !!
