@@ -79,17 +79,19 @@
 
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/main.css">
   <script src="js/lib/modernizr-2.5.2.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen" charset="utf-8">
   <link href="css/jquery.thumbnailScroller.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css">
 
 </head>
 <body>
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-
-  <div role="main">
+  <?php if (isset($conf['background-mode']) && $conf['background-mode']== 'image') : ?>
+  <div id="bg"></div>
+  <?php endif; ?>
+  <div role="main" id="all">
     <div id="sidebar">
       <?php if (isset($conf['title'])) : ?>
       <h1><a href="."><?= $conf['title'] ?></a></h1>
@@ -142,13 +144,19 @@
   <script src="js/lib/jquery-ui-1.8.13.custom.min.js"></script>
   <script src="js/lib/jquery.thumbnailScroller.js"></script>
   <script src="js/lib/jquery.chocolat.js"></script>
+  <script src="js/lib/color-thief.js"></script>
+  <script src="js/lib/jquery.blur.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/thumbnail_manager.js"></script>
+  <script src="js/background_manager.js"></script>
   <script src="js/script.js"></script>
 
   <script>
     $(document).ready(function() {
       var obj = jQuery.parseJSON('<?= json_encode($galleries, JSON_HEX_APOS) ?>');
       var friends = jQuery.parseJSON('<?= json_encode($friends, JSON_HEX_APOS) ?>');
-      main(obj, friends);
+      var settings = jQuery.parseJSON('<?= json_encode($conf, JSON_HEX_APOS) ?>');
+      main(obj, friends, settings);
 
 
     });

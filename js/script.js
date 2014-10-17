@@ -1,6 +1,6 @@
 var choco = null;
-
-function main(obj, friends){
+var colorThief = new ColorThief();
+function main(obj, friends, settings){
 
     $("#photos").height($(window).height() - 120);
 
@@ -51,6 +51,7 @@ function main(obj, friends){
 
           if(loadedPhotos == photos.length) {
             displayThumbs(scrollId);
+            setWebsiteColor(choco, settings['background_mode']);
             $("#thumbs img").on("click", function(){
               choco.goto($(this).attr("nb"));
               $("#thumbs img.selected").removeClass("selected");
@@ -119,50 +120,11 @@ function main(obj, friends){
          oldSelectedThumb.removeClass("selected");
          $("#thumbs").find('*[nb]').each(function(index){
              if ($(this).attr('nb') == data.page) {
+              setWebsiteColor(choco, settings['background_mode']);
                $(this).addClass("selected");
              }
          });
 
        });
 
-}
-
-function displayThumbs(scrollId) {
-  $("#thumbs img:first").addClass("selected");
-  $(".jTscroller").removeAttr("style");
-  $(".jTscrollerContainer").removeAttr("style");
-  $(".jThumbnailScroller").removeAttr("style");
-  $(".jThumbnailScroller").attr("id", scrollId);
-  $("#" + scrollId).thumbnailScroller({
-    scrollerType:"hoverPrecise",
-    scrollerOrientation:"horizontal",
-    scrollSpeed:2,
-    scrollEasing:"easeOutCirc",
-    scrollEasingAmount:600,
-    acceleration:4,
-    scrollSpeed:800,
-    noScrollCenterSpace:10,
-    autoScrolling:0,
-    autoScrollingSpeed:2000,
-    autoScrollingEasing:"easeInOutQuad",
-    autoScrollingDelay:500
-  });
-}
-
-function string_to_slug(str) {
-  str = str.replace(/^\s+|\s+$/g, ''); // trim
-  str = str.toLowerCase();
-
-  // remove accents, swap ñ for n, etc
-  var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;&";
-  var to   = "aaaaeeeeiiiioooouuuunc_______";
-  for (var i=0, l=from.length ; i<l ; i++) {
-    str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-  }
-
-  str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
-    .replace(/\s+/g, '_') // collapse whitespace and replace by -
-    .replace(/-+/g, '_'); // collapse dashes
-
-  return str;
 }

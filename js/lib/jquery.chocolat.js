@@ -81,14 +81,14 @@
             },
 
             prev : function(){
-                that.change(-1);
+                this.change(-1);
             },
 
             goto : function(i){ // open alias
                 this.open(i);
             },
             current : function(){
-                return that.currentImage;
+                return that.settings.currentImage;
             }
         };
     }
@@ -121,6 +121,8 @@
 
             if(this.settings.currentImage === i){
                 return;
+            } else {
+                this.settings.currentImage = i
             }
 
             this.elems.overlay.fadeIn(800);

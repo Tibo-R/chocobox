@@ -1,6 +1,28 @@
+body{
+  transition: background-color 700ms linear;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+#bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: #FFF;
+    background-size: cover !important;
+}
+
+.chocolat-overlay {
+	background: none;
+}
+
 #viewer {
 	width : 80%;
 	float : left;
+	background: none;
 }
 
 #photos{
@@ -91,4 +113,22 @@ ul#listFriends .friendName {
 
 div.chocolat-top {
 	display: none;
+}
+
+div#all {
+	color: #000;
+}
+
+div#all.light-color,
+div#all.light-color a,
+div#all.light-color h1,
+div#all.light-color h2 {
+	color: #FFF;
+}
+
+div#all.dark-color,
+div#all.dark-color a,
+div#all.dark-color h1,
+div#all.dark-color h2 {
+	color: #000;
 }

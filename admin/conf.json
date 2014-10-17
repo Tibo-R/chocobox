@@ -3,5 +3,6 @@
 	"links" :  {
 		"GitHub" : "https://github.com/Tibo-R/chocobox"
 	},
-	"friends_link_name" : "Friends"
+	"friends_link_name" : "Friends",
+	"background_mode" : "color"
 }
