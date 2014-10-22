@@ -88,7 +88,7 @@
 </head>
 <body>
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-  <?php if (isset($conf['background-mode']) && $conf['background-mode']== 'image') : ?>
+  <?php if (isset($conf['background_mode']) && $conf['background_mode'] == 'image') : ?>
   <div id="bg"></div>
   <?php endif; ?>
   <div role="main" id="all">

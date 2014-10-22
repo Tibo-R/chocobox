@@ -59,6 +59,15 @@ function max3(a,b,c) {
     return (a>b)?((a>c)?a:c):((b>c)?b:c);
 }
 
+function getGrayScale(color) {
+  var tot = color[0] + color[1] + color[2];
+  var mean = parseInt(tot / 3);
+  color[0] = mean;
+  color[1] = mean;
+  color[2] = mean;
+  return color;
+}
+
 function setWebsiteColor(choco, mode) {
     if (mode !== undefined) {
       $("#thumbs").find('*[nb]').each(function(index){
@@ -66,7 +75,7 @@ function setWebsiteColor(choco, mode) {
          var color = colorThief.getColor(this);
          if (mode == 'color') {
            $('body').css("background-color", "rgb(" + color + ")");
-         } else if (mode == 'complementary_color') {
+         } else if (mode == 'complementary_color' || mode == "grayscale") {
            temprgb = new Object();
            temprgb.r = color[0];
            temprgb.g = color[1];
@@ -74,11 +83,14 @@ function setWebsiteColor(choco, mode) {
            temphsv=RGB2HSV(temprgb);
            temphsv.hue=HueShift(temphsv.hue,180.0);
            temprgb=HSV2RGB(temphsv);
-           compleColor = temprgb.r + "," + temprgb.g + "," + temprgb.b;
-           $('body').css("background-color", "rgb(" + compleColor + ")");
            color[0] = temprgb.r;
            color[1] = temprgb.g;
            color[2] = temprgb.b;
+
+           if (mode == 'grayscale') {
+             color = getGrayScale(color);
+           }
+           $('body').css("background-color", "rgb(" + color + ")");
 
          } else if (mode == 'image') {
            $('body').css("background-image", "url(" + $(this).attr('src') +")");

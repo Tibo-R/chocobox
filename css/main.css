@@ -1,6 +1,6 @@
 body{
   transition: background-color 700ms linear;
-	background-repeat: no-repeat;
+	/*background-repeat: no-repeat;*/
 	background-size: 100% 100%;
 }
 
