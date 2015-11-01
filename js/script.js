@@ -1,5 +1,6 @@
 var choco = null;
 var colorThief = new ColorThief();
+
 function main(obj, friends, settings){
 
     $("#photos").height($(window).height() - 120);
@@ -10,6 +11,8 @@ function main(obj, friends, settings){
         $("#photos").empty();
         choco.close();
       }
+
+      History.pushState({}, $(this).html(), '/' +$(this).html())
 
       $("#thumbs").empty();
       $("#serieTitle").html($(this).html());
@@ -126,5 +129,17 @@ function main(obj, friends, settings){
          });
 
        });
+
+       function loadGallery(){
+         var gallery = History.getState().title;
+         if (gallery !== undefined) {
+           $(".gallerie:contains(" + gallery + ")").parents("li.expand").trigger( "click" );
+           $(".gallerie:contains(" + gallery + ")").trigger( "click" );
+         }
+       }
+
+       History.Adapter.bind(window,'statechange', loadGallery);
+       History.Adapter.onDomLoad(loadGallery);
+
 
 }

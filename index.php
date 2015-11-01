@@ -149,6 +149,7 @@
   <script src="js/utils.js"></script>
   <script src="js/thumbnail_manager.js"></script>
   <script src="js/background_manager.js"></script>
+  <script src="js/jquery.history.js"></script>
   <script src="js/script.js"></script>
 
   <script>
