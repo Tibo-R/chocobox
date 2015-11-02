@@ -12,7 +12,7 @@ function main(obj, friends, settings){
         choco.close();
       }
 
-      History.pushState({}, $(this).html(), '/' +$(this).html())
+      History.pushState({}, $(this).attr('id'), '/' +$(this).attr('id'))
 
       $("#thumbs").empty();
       $("#serieTitle").html($(this).html());
@@ -77,6 +77,7 @@ function main(obj, friends, settings){
     });
 
     $("#friends").click(function(){
+      History.pushState({}, $(this).attr('id'), '/' +$(this).attr('id'))
       $("#photos").empty();
       $("#thumbs").empty();
       $("#serieTitle").html("Friends");
@@ -90,8 +91,8 @@ function main(obj, friends, settings){
       $("#photos").height($(window).height()-120);
     });
 
-    $(".expand").click(function(){
-      var ul = $(this).children("ul");
+    function expand_cat(that){
+      var ul = $(that).children("ul");
       $(".expand ul:not(#" + ul.attr("id") + ")").css('opacity', 1)
                .slideUp()
                .animate(
@@ -116,6 +117,10 @@ function main(obj, friends, settings){
                   );
 
       }
+    }
+
+    $(".expand").click(function(){
+      expand_cat(this);
     });
 
      $("#viewer").on("changePage", function(e, data){
@@ -133,12 +138,14 @@ function main(obj, friends, settings){
        function loadGallery(){
          var gallery = History.getState().title;
          if (gallery !== undefined) {
-           $(".gallerie:contains(" + gallery + ")").parents("li.expand").trigger( "click" );
-           $(".gallerie:contains(" + gallery + ")").trigger( "click" );
+            if ($("#" + gallery).is(':hidden')) {
+              expand_cat($("#" + gallery).parents("li.expand"));
+            }
+            $("#" + gallery).trigger( "click" );
          }
        }
 
-       History.Adapter.bind(window,'statechange', loadGallery);
+       History.Adapter.bind(window, 'statechange', loadGallery);
        History.Adapter.onDomLoad(loadGallery);
 
 
